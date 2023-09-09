@@ -4,7 +4,20 @@ use yii\symfonymailer\Mailer;
 
 $config = [
     'id'         => 'basic',
-
+    'modules' => [
+        'site' => [
+            'class' => 'app\modules\site\Module',
+        ],
+        'blog' => [
+            'class' => 'app\modules\blog\Module',
+        ],
+        'cpanel' => [
+            'class' => 'app\modules\cpanel\Module',
+        ],
+        'catalog' => [
+            'class' => 'app\modules\catalog\Module',
+        ],
+    ],
     'components' => [
         'user'         => [
             'identityClass'   => 'app\modules\user\models\User',
