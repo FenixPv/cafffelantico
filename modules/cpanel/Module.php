@@ -15,7 +15,7 @@ class Module extends \yii\base\Module
     /**
      * {@inheritdoc}
      */
-    public function init()
+    public function init(): void
     {
         parent::init();
 
