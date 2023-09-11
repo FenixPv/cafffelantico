@@ -6,7 +6,7 @@
  */
 
 use app\assets\AppAsset;
-use yii\bootstrap5\Alert;
+use app\widgets\Alert;
 use yii\bootstrap5\BootstrapAsset;
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
