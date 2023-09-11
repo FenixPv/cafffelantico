@@ -4,13 +4,14 @@ use yii\db\Migration;
 
 /**
  * Handles the creation of table `{{%user}}`.
+ * @noinspection PhpUnused
  */
 class m230911_165830_create_user_table extends Migration
 {
     /**
      * {@inheritdoc}
      */
-    public function safeUp()
+    public function safeUp(): void
     {
         $this->createTable('{{%user}}', [
             'id' => $this->primaryKey(),
@@ -30,7 +31,7 @@ class m230911_165830_create_user_table extends Migration
     /**
      * {@inheritdoc}
      */
-    public function safeDown()
+    public function safeDown(): void
     {
         $this->dropTable('{{%user}}');
     }

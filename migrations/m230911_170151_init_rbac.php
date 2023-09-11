@@ -12,7 +12,7 @@ class m230911_170151_init_rbac extends Migration
      * {@inheritdoc}
      * @throws Exception
      */
-    public function safeUp()
+    public function safeUp(): void
     {
         $auth = Yii::$app->authManager;
         $auth->removeAll();
