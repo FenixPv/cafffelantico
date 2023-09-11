@@ -11,36 +11,37 @@ use yii\widgets\Pjax;
 /** @var app\modules\cpanel\models\search\SearchUser $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Users';
+$this->title = 'Пользователи';
+$this->params['breadcrumbs'][] = ['label' => 'Контрольная панель', 'url' => ['/cpanel']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h1><?php echo Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create User', ['create'], ['class' => 'btn btn-success']) ?>
+        <?php echo Html::a('Новый пользователь', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php Pjax::begin(); ?>
+    <?php
 
-    <?= GridView::widget(config: [
+    Pjax::begin();
+
+    /** @noinspection PhpUnhandledExceptionInspection */
+    echo GridView::widget(config: [
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => SerialColumn::class],
 
-            'id',
-            'created_at',
-            'updated_at',
+            'created_at:date',
+            'updated_at:date',
             'login',
-            'password_hash',
-            'password_reset_token',
             'email:email',
             'status',
             [
                 'class' => ActionColumn::class,
-                'urlCreator' => static function ( $action, User $model, $key, $index, $column) {
+                'urlCreator' => static function ( $action, User $model) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
             ],
