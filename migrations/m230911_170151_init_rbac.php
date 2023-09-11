@@ -3,18 +3,19 @@
 use yii\db\Migration;
 
 /**
- * Class m230910_115751_init_rbac
+ * Class m230911_170151_init_rbac
  * @noinspection PhpUnused
  */
-class m230910_115751_init_rbac extends Migration
+class m230911_170151_init_rbac extends Migration
 {
     /**
      * {@inheritdoc}
      * @throws Exception
      */
-    public function safeUp(): void
+    public function safeUp()
     {
         $auth = Yii::$app->authManager;
+        $auth->removeAll();
 
         $allowCpanel = $auth->createPermission('allowCpanel');
         $allowCpanel->description = 'Доступ к панели администрирования';
@@ -49,7 +50,7 @@ class m230910_115751_init_rbac extends Migration
         $auth->addChild($admin, $allowCpanelCatalog);
         $auth->addChild($admin, $allowCpanelSaleMap);
 
-        $blogger = $auth->createPermission('blogger');
+        $blogger = $auth->createRole('blogger');
         $blogger->description = 'Редактор блога';
         $auth->add($blogger);
         $auth->addChild($blogger, $allowCpanelBlog);
@@ -61,9 +62,11 @@ class m230910_115751_init_rbac extends Migration
     /**
      * {@inheritdoc}
      */
-    public function safeDown(): void
+    public function safeDown()
     {
-        $auth = Yii::$app->authManager;
-        $auth->removeAll();
+        echo "m230911_170151_init_rbac cannot be reverted.\n";
+
+        return false;
     }
+
 }
