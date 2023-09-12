@@ -34,6 +34,8 @@ $config = [
         ],
         'urlManager'   => [
             'rules'           => [
+                '' => 'site/default/index',
+                '<_a:(login)>' => 'site/default/<_a>',
             ],
             'showScriptName'  => false,
             'enablePrettyUrl' => true,

@@ -86,7 +86,6 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @param $login
      * @return User|null
-     * @noinspection PhpUnused
      */
     public static function findByLogin($login): ?User
     {
@@ -96,7 +95,6 @@ class User extends ActiveRecord implements IdentityInterface
     /**
      * @param $password
      * @return bool
-     * @noinspection PhpUnused
      */
     public function validatePassword($password): bool
     {

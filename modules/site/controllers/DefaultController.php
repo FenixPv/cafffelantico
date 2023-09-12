@@ -2,6 +2,7 @@
 
 namespace app\modules\site\controllers;
 
+use app\modules\cpanel\models\LoginForm;
 use yii\web\Controller;
 
 /**
@@ -25,6 +26,18 @@ class DefaultController extends Controller
                 'class' => 'yii\web\ErrorAction',
             ],
         ];
+    }
+    public function actionLogin()
+    {
+        $model = new LoginForm();
+
+        if ($model->load(\Yii::$app->request->post()) && $model->login()) {
+            return $this->goBack();
+        } else {
+            return $this->render('login', [
+                'model' => $model,
+            ]);
+        }
     }
 
 }
