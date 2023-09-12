@@ -20,7 +20,7 @@ $config = [
     ],
     'components' => [
         'user'         => [
-            'identityClass'   => 'app\modules\user\models\User',
+            'identityClass'   => 'app\modules\cpanel\models\User',
             'enableAutoLogin' => true,
             'loginUrl'        => ['login'],
         ],

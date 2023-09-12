@@ -26,6 +26,12 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
 $this->registerCssFile('@web/css/frontend.css', [
     'depends' => [BootstrapAsset::class],
 ]);
+$this->registerLinkTag(['rel' => 'preconnect', 'href' => 'https://fonts.googleapis.com']);
+$this->registerLinkTag(['rel' => 'preconnect', 'href' => 'https://fonts.gstatic.com']);
+$this->registerLinkTag([
+    'rel' => 'stylesheet',
+    'href' => 'https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Russo+One&display=swap'
+]);
 
 $this->beginPage();
 ?>
@@ -38,7 +44,7 @@ $this->beginPage();
 </head>
 <body class="vh-100">
 <?php $this->beginBody() ?>
-<header  id="header">
+<header  id="header" class="mb-3">
     <?php
     NavBar::begin([
         'brandLabel' => 'CAFFÉ L’Antico',
