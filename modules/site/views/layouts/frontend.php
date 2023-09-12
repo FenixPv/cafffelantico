@@ -42,21 +42,21 @@ $this->beginPage();
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="vh-100">
+<body>
 <?php $this->beginBody() ?>
-<header  id="header" class="mb-3">
+<header  id="header" class="mb-3 sticky-top">
     <?php
     NavBar::begin([
         'brandLabel' => 'CAFFÉ L’Antico',
         'brandUrl' => Yii::$app->homeUrl,
         'innerContainerOptions' => ['class' => 'container'],
-        'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark sticky-top']
+        'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark']
     ]);
     /** @noinspection PhpUnhandledExceptionInspection */
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav m-auto'],
         'items' => [
-            ['label' => 'История', 'url' => ['/site/about']],
+            ['label' => 'История', 'url' => ['/history']],
             ['label' => 'Страсть', 'url' => ['/site/about']],
             ['label' => 'Кофе', 'url' => ['/site/contact']],
         ]

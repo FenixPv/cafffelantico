@@ -46,5 +46,9 @@ class DefaultController extends Controller
             ]);
         }
     }
+    public function actionHistory()
+    {
+        return $this->render('history');
+    }
 
 }

@@ -2,6 +2,7 @@
 
 body {
     background-color: #151E1D;
+    min-height: 100%;
 }
 .navbar-brand {
     font-family: 'Rubik Dirt', cursive;
@@ -66,7 +67,6 @@ body {
     background-size: contain;
 }
 .section-history {
-    /*background-color: #0C0704;*/
     background-color: #151E1D;
     background-image: url("/img/lantico_history.png");
     background-size: contain;
@@ -76,6 +76,29 @@ body {
     background-image: url("/img/espresso.png");
     background-size: contain;
 }
-.text-gold {
-    color: gold;
+.breadcrumb {
+    background: rgba(255, 255, 255, 0.100);
+    backdrop-filter: blur(10px);
+    padding-left: 1rem;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 4px;
+}
+.breadcrumb-item a {
+    color: #f3f3f3;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    color: #f3f3f3;
+    content: "\00bb ";
+}
+.breadcrumb-item.active {
+    color: #f3f3f3;
+}
+
+.year {
+    border-top: #f3f3f3 1px solid;
+    border-bottom: #f3f3f3 1px solid;
+}
+.text-light {
+    color: #f3f3f3;
 }
