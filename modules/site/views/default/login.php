@@ -2,9 +2,10 @@
 
 /**
  * @var $this yii\web\View
- * @var $model \app\modules\cpanel\models\LoginForm
+ * @var $model LoginForm
  */
 
+use app\modules\cpanel\models\LoginForm;
 use yii\bootstrap5\ActiveForm;
 use yii\bootstrap5\Html;
 

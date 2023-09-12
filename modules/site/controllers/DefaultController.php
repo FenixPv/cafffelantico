@@ -3,7 +3,9 @@
 namespace app\modules\site\controllers;
 
 use app\modules\cpanel\models\LoginForm;
+use Yii;
 use yii\web\Controller;
+use yii\web\Response;
 
 /**
  * Default controller for the `site` module
@@ -27,11 +29,16 @@ class DefaultController extends Controller
             ],
         ];
     }
-    public function actionLogin()
+
+    /**
+     * @return Response|string
+     * @noinspection PhpUnused
+     */
+    public function actionLogin(): Response|string
     {
         $model = new LoginForm();
 
-        if ($model->load(\Yii::$app->request->post()) && $model->login()) {
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
             return $this->render('login', [
