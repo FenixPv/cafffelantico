@@ -1,7 +1,7 @@
 <?php
 $this->title = '404 CAFFÉ L\'Antico';
 ?>
-<article class="d-flex justify-content-center align-items-center page pt-3">
+<article class="d-flex justify-content-center align-items-center pt-3">
     <section class="text-light text-center px-5 py-3 surface-dark">
         <div class="fs-1 caffelantico">Ошибка</div>
         <div class="display-1 caffelantico">404</div>
