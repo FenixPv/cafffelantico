@@ -23,12 +23,11 @@ $this->registerMetaTag(['name' => 'description', 'content' => $this->params['met
 $this->registerMetaTag(['name' => 'keywords', 'content' => $this->params['meta_keywords'] ?? '']);
 $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii::getAlias('@web/favicon.png')]);
 /** @noinspection PhpUnhandledExceptionInspection */
-$this->registerCssFile('@web/css/backend.css', [
+$this->registerCssFile('@web/css/frontend.css', [
     'depends' => [BootstrapAsset::class],
 ]);
 
 $this->beginPage();
-
 ?>
 
 <!DOCTYPE html>
@@ -44,18 +43,16 @@ $this->beginPage();
     NavBar::begin([
         'brandLabel' => 'CAFFÉ L’Antico',
         'brandUrl' => Yii::$app->homeUrl,
-        'innerContainerOptions' => ['class' => 'container-fluid'],
+        'innerContainerOptions' => ['class' => 'container'],
         'options' => ['class' => 'navbar-expand-md navbar-dark bg-dark sticky-top']
     ]);
     /** @noinspection PhpUnhandledExceptionInspection */
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav m-auto'],
         'items' => [
-            ['label' => 'Контрольная панель', 'url' => ['/cpanel']],
-            ['label' => 'Сайт', 'url' => ['/cpanel/site']],
-            ['label' => 'Блог', 'url' => ['/cpanel/blog']],
-            ['label' => 'Каталог', 'url' => ['/cpanel/catalog']],
-            ['label' => 'Пользователи', 'url' => ['/cpanel/user']],
+            ['label' => 'История', 'url' => ['/site/about']],
+            ['label' => 'Страсть', 'url' => ['/site/about']],
+            ['label' => 'Кофе', 'url' => ['/site/contact']],
         ]
     ]);
 
@@ -64,7 +61,7 @@ $this->beginPage();
 
 </header>
 <hr>
-<main class="container-fluid">
+<main class="container">
     <?php
     if (!empty($this->params['breadcrumbs'])) {
         /** @noinspection PhpUnhandledExceptionInspection */
@@ -78,4 +75,5 @@ $this->beginPage();
 </main>
 <?php $this->endBody() ?>
 </body>
-<?php $this->endPage() ?>
+<?php
+$this->endPage();
