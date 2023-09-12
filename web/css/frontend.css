@@ -48,3 +48,34 @@ body {
 .btn-dark {
     background-color: #151E1D;
 }
+.scroller section {
+    height: 100vh;
+    position: relative;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+}
+.section-home {
+    background-color: #151E1D;
+    background-image: url("/img/0001.jpg");
+}
+.section-1909 {
+    background-color: #151E1D;
+    background-image: url("/img/1909.png");
+    background-size: contain;
+}
+.section-history {
+    /*background-color: #0C0704;*/
+    background-color: #151E1D;
+    background-image: url("/img/lantico_history.png");
+    background-size: contain;
+}
+.section-espresso {
+    background-color: #151E1D;
+    background-image: url("/img/espresso.png");
+    background-size: contain;
+}
+.text-gold {
+    color: gold;
+}

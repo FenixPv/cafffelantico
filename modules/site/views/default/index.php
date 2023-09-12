@@ -1,12 +1,76 @@
-<div class="site-default-index">
-    <h1><?= $this->context->action->uniqueId ?></h1>
-    <p>
-        This is the view content for action "<?= $this->context->action->id ?>".
-        The action belongs to the controller "<?= get_class($this->context) ?>"
-        in the "<?= $this->context->module->id ?>" module.
-    </p>
-    <p>
-        You may customize this page by editing the following file:<br>
-        <code><?= __FILE__ ?></code>
-    </p>
-</div>
+<?php
+$this->title = 'Caffe L\'Antico';
+?>
+
+<article class="scroller">
+    <section class="section-home d-flex flex-column">
+        <div class="h-75">
+            <div class="h-100 d-flex justify-content-between align-items-center">
+                <div class="text-light text-center pt-5 mt-5">
+                    <div class="fs-1 caffelantico pt-5 mt-5">CAFFÉ</div>
+                    <img src="/img/italy.svg"
+                         alt="italy"
+                         class="w-50">
+                </div>
+                <div class="text-light text-center pt-5 mt-5">
+                    <div class="fs-1 caffelantico pt-5 mt-5">L’Antico</div>
+                    <img src="/img/italy.svg" alt="italy" class="w-50">
+                </div>
+            </div>
+        </div>
+        <div class="h-25 text-light">
+            <div class="h-100 d-flex justify-content-center align-items-center">
+                <div class="fs-1 caffelantico text-light text-center mt-5">
+                    История, страсть, кофе...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-1909">
+        <div class="row m-0 h-100">
+            <div class="col-lg-4 col-md-6 h-100 d-flex justify-content-center align-items-center">
+                <div class="mx-4 p-3 surface-dark text-light border-0">
+                    <span class="fs-2 text-danger"><b>1909</b></span>
+                    <span class="fs-4">год<br> начало истории <b>Caffe L'Antico</b></span>
+                    <p class="fs-4">
+                        Кофе с более чем 110 летней
+                        <a href="/history" class="btn btn-dark mt-3">историей</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-history">
+        <div class="row m-0 h-100">
+            <div class="col-lg-4 col-md-6 h-100 d-flex justify-content-center align-items-center">
+                <div class="mx-4 p-3 surface-dark text-light border-0">
+          <span class="fs-2 text-danger">
+              <b>Вековые традиции экспертизы в кофе</b>
+          </span>
+                    <p class="fs-4">
+                        Только настоящая страсть и приверженность традициям удерживает 4 поколения
+                        семьи за одним делом.<br>
+                        <a href="/perfecto-coffee" class="btn btn-dark mt-3">Узнать как создаётся идеальный кофе</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-espresso">
+        <div class="row m-0 h-100">
+            <div class="col-lg-4 col-md-6 h-100 d-flex justify-content-center align-items-center">
+                <div class="mx-4 p-3 surface-dark text-light border-0">
+                    <span class="fs-2 font-weight-bold text-danger"><b>Espresso</b></span>
+                    <p class="fs-4">
+                        Основа большого количества кофейных напитков. Какой бы напиток мы не любили капучино, моккачино, американо,
+                        латте или кортадо, основа всегда эспрессо.
+                        <a href="/blog" class="btn btn-dark mt-3">Узнать как готовить идеальный эспрессо</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>
