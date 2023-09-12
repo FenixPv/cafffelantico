@@ -57,8 +57,8 @@ $this->beginPage();
         'options' => ['class' => 'navbar-nav m-auto'],
         'items' => [
             ['label' => 'История', 'url' => ['/history']],
-            ['label' => 'Страсть', 'url' => ['/site/about']],
-            ['label' => 'Кофе', 'url' => ['/site/contact']],
+//            ['label' => 'Страсть', 'url' => ['/site/about']],
+//            ['label' => 'Кофе', 'url' => ['/site/contact']],
         ]
     ]);
 
