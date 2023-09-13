@@ -4,19 +4,23 @@ namespace app\modules\cpanel\controllers;
 
 use app\modules\cpanel\models\Page;
 use app\modules\cpanel\models\search\SearchPage;
+use Throwable;
+use yii\db\StaleObjectException;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\Response;
 
 /**
  * SiteController implements the CRUD actions for Page model.
+ * @noinspection PhpUnused
  */
 class SiteController extends Controller
 {
     /**
      * @inheritDoc
      */
-    public function behaviors()
+    public function behaviors(): array
     {
         return array_merge(
             parent::behaviors(),
@@ -53,8 +57,9 @@ class SiteController extends Controller
      * @param int $id ID
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
+     * @noinspection PhpUnused
      */
-    public function actionView($id): string
+    public function actionView(int $id): string
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
@@ -64,9 +69,10 @@ class SiteController extends Controller
     /**
      * Creates a new Page model.
      * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return string|\yii\web\Response
+     * @return string|Response
+     * @noinspection PhpUnused
      */
-    public function actionCreate()
+    public function actionCreate(): Response|string
     {
         $model = new Page();
 
@@ -87,10 +93,11 @@ class SiteController extends Controller
      * Updates an existing Page model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id ID
-     * @return string|\yii\web\Response
+     * @return string|Response
      * @throws NotFoundHttpException if the model cannot be found
+     * @noinspection PhpUnused
      */
-    public function actionUpdate($id)
+    public function actionUpdate(int $id): Response|string
     {
         $model = $this->findModel($id);
 
@@ -107,10 +114,13 @@ class SiteController extends Controller
      * Deletes an existing Page model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id ID
-     * @return \yii\web\Response
+     * @return Response
      * @throws NotFoundHttpException if the model cannot be found
+     * @throws Throwable
+     * @throws StaleObjectException
+     * @noinspection PhpUnused
      */
-    public function actionDelete($id)
+    public function actionDelete(int $id): Response
     {
         $this->findModel($id)->delete();
 
@@ -124,7 +134,7 @@ class SiteController extends Controller
      * @return Page the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
+    protected function findModel(int $id): Page
     {
         if (($model = Page::findOne(['id' => $id])) !== null) {
             return $model;

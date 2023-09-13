@@ -3,8 +3,10 @@
 namespace app\modules\site\controllers;
 
 use app\modules\cpanel\models\LoginForm;
+use app\modules\cpanel\models\Page;
 use Yii;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 /**
@@ -46,9 +48,39 @@ class DefaultController extends Controller
             ]);
         }
     }
-    public function actionHistory()
+
+    /**
+     * @return string
+     * @noinspection PhpUnused
+     */
+    public function actionHistory(): string
     {
         return $this->render('history');
+    }
+
+    /**
+     * @param $link
+     * @return string
+     * @throws NotFoundHttpException
+     * @noinspection PhpUnused
+     */
+    public function actionPage($link): string
+    {
+        return $this->render('view', [
+            'model' => $this->findModel($link),
+        ]);
+    }
+
+    /**
+     * @throws NotFoundHttpException
+     */
+    protected function findModel($link): ?Page
+    {
+        if (($model = Page::findOne(['link' => $link])) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 
 }

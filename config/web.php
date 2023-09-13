@@ -35,7 +35,7 @@ $config = [
         'urlManager'   => [
             'rules'           => [
                 '' => 'site/default/index',
-                '<_a:(login|history)>' => 'site/default/<_a>',
+                '<_a:(login|history|page)>' => 'site/default/<_a>',
             ],
             'showScriptName'  => false,
             'enablePrettyUrl' => true,
