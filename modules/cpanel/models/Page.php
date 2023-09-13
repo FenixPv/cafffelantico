@@ -2,6 +2,7 @@
 
 namespace app\modules\cpanel\models;
 
+use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 
 /**
@@ -24,6 +25,12 @@ class Page extends ActiveRecord
     {
         return 'page';
     }
+    public function behaviors(): array
+    {
+        return [
+            TimestampBehavior::class,
+        ];
+    }
 
     /**
      * {@inheritdoc}
@@ -45,12 +52,12 @@ class Page extends ActiveRecord
     {
         return [
             'id' => 'ID',
-            'link' => 'Link',
-            'name' => 'Name',
-            'description' => 'Description',
-            'body' => 'Body',
-            'created_at' => 'Created At',
-            'updated_at' => 'Updated At',
+            'link' => 'Ссылка',
+            'name' => 'Название',
+            'description' => 'Описание',
+            'body' => 'Текст',
+            'created_at' => 'Создано',
+            'updated_at' => 'Отредактировано',
         ];
     }
 }

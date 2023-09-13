@@ -22,7 +22,7 @@ class SiteController extends Controller
             parent::behaviors(),
             [
                 'verbs' => [
-                    'class' => VerbFilter::className(),
+                    'class' => VerbFilter::class,
                     'actions' => [
                         'delete' => ['POST'],
                     ],
@@ -35,8 +35,9 @@ class SiteController extends Controller
      * Lists all Page models.
      *
      * @return string
+     * @noinspection PhpUsage
      */
-    public function actionIndex()
+    public function actionIndex(): string
     {
         $searchModel = new SearchPage();
         $dataProvider = $searchModel->search($this->request->queryParams);
@@ -53,7 +54,7 @@ class SiteController extends Controller
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($id): string
     {
         return $this->render('view', [
             'model' => $this->findModel($id),

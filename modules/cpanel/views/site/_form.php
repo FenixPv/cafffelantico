@@ -1,5 +1,6 @@
 <?php
 
+use mihaildev\ckeditor\CKEditor;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -19,21 +20,19 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
     <?php
+    /** @noinspection PhpUnhandledExceptionInspection */
     echo $form->field($model, 'body')->widget(
-            \mihaildev\ckeditor\CKEditor::class,
-            [
+            CKEditor::class,
+        config: [
         'editorOptions' => \mihaildev\elfinder\ElFinder::ckeditorOptions(
             'elfinder',
             [
             'preset' => 'basic',
+            'height' => '35vh',
             'inline' => false, // по умолчанию false
         ])
     ]);
     ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

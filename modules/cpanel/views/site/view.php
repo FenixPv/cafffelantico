@@ -1,15 +1,18 @@
 <?php
 
 use yii\helpers\Html;
+use yii\web\YiiAsset;
 use yii\widgets\DetailView;
 
-/** @var yii\web\View $this */
-/** @var app\modules\cpanel\models\Page $model */
+/**
+ * @var yii\web\View $this
+ * @var app\modules\cpanel\models\Page $model
+ */
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Pages', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
-\yii\web\YiiAsset::register($this);
+YiiAsset::register($this);
 ?>
 <div class="page-view">
 
@@ -26,14 +29,16 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
+    <?php
+    /** @noinspection PhpUnhandledExceptionInspection */
+    echo DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
             'link',
             'name',
             'description:ntext',
-            'body:ntext',
+            'body:html',
             'created_at',
             'updated_at',
         ],

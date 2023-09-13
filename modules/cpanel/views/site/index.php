@@ -6,11 +6,14 @@ use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-/** @var yii\web\View $this */
-/** @var app\modules\cpanel\models\search\SearchPage $searchModel */
-/** @var yii\data\ActiveDataProvider $dataProvider */
+/**
+ * @var yii\web\View $this
+ * @var app\modules\cpanel\models\search\SearchPage $searchModel
+ * @var yii\data\ActiveDataProvider $dataProvider
+ */
 
-$this->title = 'Pages';
+$this->title = 'Страницы сайта';
+$this->params['breadcrumbs'][] = ['label' => 'Контрольная панель', 'url' => ['/cpanel']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="page-index">
@@ -18,27 +21,25 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Page', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Создать страницу', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
-    <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php
+    Pjax::begin();
 
-    <?= GridView::widget([
+    /** @noinspection PhpUnhandledExceptionInspection */
+    echo GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'link',
             'name',
-            'description:ntext',
-            'body:ntext',
-            //'created_at',
-            //'updated_at',
+            'created_at',
+            'updated_at',
             [
-                'class' => ActionColumn::className(),
+                'class' => ActionColumn::class,
                 'urlCreator' => function ($action, Page $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
