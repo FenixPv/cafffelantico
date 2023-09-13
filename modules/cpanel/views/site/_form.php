@@ -18,7 +18,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'body')->textarea(['rows' => 6]) ?>
+    <?php
+    echo $form->field($model, 'body')->widget(
+            \mihaildev\ckeditor\CKEditor::class,
+            [
+        'editorOptions' => \mihaildev\elfinder\ElFinder::ckeditorOptions(
+            'elfinder',
+            [
+            'preset' => 'basic',
+            'inline' => false, // по умолчанию false
+        ])
+    ]);
+    ?>
 
     <?= $form->field($model, 'created_at')->textInput() ?>
 

@@ -44,6 +44,16 @@ $config = [
             'errorAction' => 'site/default/error',
         ],
     ],
+    'controllerMap' => [
+        'elfinder' => [
+            'class' => 'mihaildev\elfinder\PathController',
+            'access' => ['@'], // доступ для всех
+            'root' => [
+                'path' => 'img/upload', // директория внутри web
+                'name' => 'Изображения'
+            ],
+        ]
+    ],
 ];
 
 if (YII_ENV_DEV) {
